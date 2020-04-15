@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using asp.net_mvc_core.Models;
+using src.Models;
 
 namespace asp.net_mvc_core.Controllers
 {
@@ -12,20 +13,31 @@ namespace asp.net_mvc_core.Controllers
     [Route("gestao-clientes")]
     public class HomeController : Controller
     {
+        
         [Route("")]
         [Route("pagina-principal")]
         public IActionResult Index()
         {
+            // var filme = new Filme
+            // {
+            //     Titulo = "Oi",
+            //     DataLancamento = DateTime.Now,
+            //     Genero = null,
+            //     Avaliacao = 10,
+            //     Valor = 20000
+            // };
+
+            // RedirectToAction("Privacy", filme);
             return View();
         }
 
-        [Route("sobre")]
-        [Route("sobre/{id:int}/{empresa:guid}")]
-        public IActionResult About(int id, Guid empresa)
-        {
-            Informacoes(id, empresa);
-            return View();
-        }
+        // [Route("sobre")]
+        // [Route("sobre/{id:int}/{empresa:guid}")]
+        // public IActionResult About(int id, Guid empresa)
+        // {
+        //     Informacoes(id, empresa);
+        //     return View();
+        // }
 
         [Route("contato")]
         public IActionResult Contact()
@@ -36,8 +48,17 @@ namespace asp.net_mvc_core.Controllers
         }
 
         [Route("privacidade")]
-        public IActionResult Privacy()
+        public IActionResult Privacy(Filme filme)
         {
+            if(ModelState.IsValid){
+
+            }
+
+            foreach (var error in ModelState.Values.SelectMany(m => m.Errors))
+            {
+                Console.WriteLine(error.ErrorMessage);
+            }
+
             return View("Privacy");
         }
 
@@ -50,9 +71,9 @@ namespace asp.net_mvc_core.Controllers
         }
 
         // testando function
-        public void Informacoes(int id, Guid empresa)
-        {   
-            ViewData["Message"] = "ID: "+ id + " EMPRESA: " + empresa;
-        }
+    //     public void Informacoes(int id, Guid empresa)
+    //     {   
+    //         ViewData["Message"] = "ID: "+ id + " EMPRESA: " + empresa;
+    //     }
     }
 }
