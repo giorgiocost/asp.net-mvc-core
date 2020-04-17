@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace src.Models
+namespace asp.net_mvc_core.Models
 {
     public class Filme
     {
