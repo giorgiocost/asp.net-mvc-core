@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using asp.net_mvc_core.Models;
-using src.Models;
 
 namespace asp.net_mvc_core.Controllers
 {
